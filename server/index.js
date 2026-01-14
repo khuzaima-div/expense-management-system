@@ -7,11 +7,19 @@ const connectDB = require("./Db/connectDB");
 const authRouter= require("./routes/authRoutes");
 const ExpenseRouter=require("./routes/expenseRoutes")
 const adminRoutes = require("./routes/adminRouths")
-const path =require("path")
+const path =require("path");
+const { error } = require("console");
 
 
 const app = express();
 connectDB();
+
+app.get("/",(req,res)=>{
+ res.send({
+    activeStatus:true,
+    error:false
+  });
+})
 
 app.use(cors({
   origin: "http://localhost:5173",
