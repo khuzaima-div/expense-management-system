@@ -21,10 +21,23 @@ app.get("/",(req,res)=>{
   });
 })
 
+
+const allowedOrigins = [
+  "https://expense-app-system.netlify.app",  // Bina slash ke
+  "https://expense-management-system-mocha.vercel.app"
+];
+
 app.use(cors({
-    origin: ["https://expense-app-system.netlify.app", "https://expense-management-system-mocha.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+  origin: function (origin, callback) {
+    // Agar origin list mein hai ya local request hai to allow karein
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS policy blocked this origin"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 
 app.use(express.json());
