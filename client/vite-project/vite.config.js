@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: './', // ✅ Netlify
+  base: '/', // ✅ Isko single slash '/' hona chahiye
   plugins: [
     react(),
     tailwindcss(),
