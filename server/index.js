@@ -22,7 +22,9 @@ app.get("/",(req,res)=>{
 })
 
 app.use(cors({
-  origin: "https://expense-app-system.netlify.app/"
+    origin: ["https://expense-app-system.netlify.app", "https://expense-management-system-mocha.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }));
 
 app.use(express.json());
