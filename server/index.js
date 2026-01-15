@@ -22,9 +22,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
+  origin: ["http://localhost:5173","https://expense-app-system.netlify.app/"]
 }));
 
 app.use(express.json());
