@@ -23,7 +23,7 @@ app.get("/",(req,res)=>{
 
 
 const allowedOrigins = [
-  "https://expense-app-system.netlify.app",  // Bina slash ke
+  "https://vercel.com/khuzaima-divs-projects/expense-management-system-project",
   "https://expense-management-system-mocha.vercel.app"
 ];
 
