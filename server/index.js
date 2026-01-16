@@ -24,7 +24,7 @@ app.get("/",(req,res)=>{
 const allowedOrigins = [
   "https://expense-management-system-project.vercel.app", 
   "https://expense-management-system-mocha.vercel.app",
-  "http://localhost:5173" // Local testing ke liye lazmi hai
+  "http://localhost:5173" 
 ];
 
 app.use(cors({
