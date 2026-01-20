@@ -14,12 +14,7 @@ const { error } = require("console");
 const app = express();
 connectDB();
 
-app.get("/",(req,res)=>{
- res.send({
-    activeStatus:true,
-    error:false
-  });
-})
+
 
 const allowedOrigins = [
   "https://expense-management-system-project.vercel.app", 
