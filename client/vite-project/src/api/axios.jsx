@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-baseURL: "https://expense-management-system-rho-nine.vercel.app/api",
+baseURL: "https://expense-management-system-pkrp.vercel.app/api",
 baseURL:"http://localhost:8000/api"
 });
 
