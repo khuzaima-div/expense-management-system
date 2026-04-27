@@ -16,26 +16,25 @@ connectDB();
 
 
 
-const allowedOrigins = [
-  "https://expense-management-system-pro-git-ed3838-khuzaima-divs-projects.vercel.app/",
-  "https://expense-management-system-mocha.vercel.app",
-  "http://localhost:5173" 
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    // !origin checks for tools like Postman or server-side calls
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log("Blocked by CORS from Origin:", origin); // Debugging ke liye console check karein
-      callback(new Error("CORS policy blocked this origin"));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // OPTIONS pre-flight requests ke liye zaroori hai
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"] // Headers ko bhi allow karna zaroori hai
+  origin: "http://localhost:5173",
+  credentials: true
 }));
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // !origin checks for tools like Postman or server-side calls
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       console.log("Blocked by CORS from Origin:", origin); // Debugging ke liye console check karein
+//       callback(new Error("CORS policy blocked this origin"));
+//     }
+//   },
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // OPTIONS pre-flight requests ke liye zaroori hai
+//   credentials: true,
+//   allowedHeaders: ["Content-Type", "Authorization"] // Headers ko bhi allow karna zaroori hai
+// }));
 app.use(express.json());
 app.use("/api/auth",authRouter);
 app.use("/api/expense",ExpenseRouter);
